@@ -17,7 +17,7 @@ interface City {
     userId: number;
   };
 }
-
+//
 interface ChooseCityProops {
   weather: WeatherData | null;
   setCityName: React.Dispatch<React.SetStateAction<string>>;
