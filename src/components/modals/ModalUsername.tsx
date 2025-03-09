@@ -31,20 +31,20 @@ const ModalUsername: React.FC<ModalUsernameProps> = ({ onClose }) => {
   return (
     <div className={classes.modalContainer} onClick={handleClickOutside}>
       <div className={classes.modalContent}>
-        <h2>Смена пользователя</h2>
-        <label>Старый юзернейм:</label>
+        <h2>Change user</h2>
+        <label>Old username:</label>
         <MyInput
           type="text"
           value={oldUsername}
           onChange={(e) => setOldUsername(e.target.value)}
         />
-        <label>Новый юзернейм:</label>
+        <label>New username:</label>
         <MyInput
           type="text"
           value={newUsername}
           onChange={(e) => setNewUsername(e.target.value)}
         />
-        <MyButton onClick={handleChangeUsername}>Сменить пользователя</MyButton>
+        <MyButton onClick={handleChangeUsername}>Change user</MyButton>
       </div>
     </div>
   );

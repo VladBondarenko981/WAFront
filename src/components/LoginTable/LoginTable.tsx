@@ -9,6 +9,8 @@ interface LoginTableProps {
   setEmail: React.Dispatch<React.SetStateAction<string>>;
   setPassword: React.Dispatch<React.SetStateAction<string>>;
   onLogin: () => void;
+  error: string;
+  successMessage: string;
 }
 
 const LoginTable: React.FC<LoginTableProps> = ({
@@ -17,11 +19,13 @@ const LoginTable: React.FC<LoginTableProps> = ({
   setEmail,
   setPassword,
   onLogin,
+  error,
+  successMessage,
 }) => {
   return (
     <div className={classes.mainStyle}>
       <div className={classes.inputContainer}>
-        <label htmlFor="email">Введите ваш email:</label>
+        <label htmlFor="email">Enter your email:</label>
         <MyInput
           type="email"
           value={email}
@@ -29,7 +33,7 @@ const LoginTable: React.FC<LoginTableProps> = ({
         />
       </div>
       <div className={classes.inputContainer}>
-        <label htmlFor="password">Введите ваш пароль:</label>
+        <label htmlFor="password">Enter your password:</label>
         <MyInput
           type="password"
           value={password}
@@ -37,6 +41,7 @@ const LoginTable: React.FC<LoginTableProps> = ({
         />
       </div>
       <MyButton onClick={onLogin}>Click</MyButton>
+      {successMessage ? <div>{successMessage}</div> : <div>{error}</div>}
     </div>
   );
 };

@@ -34,7 +34,7 @@ const NextDayWeatherTable: React.FC<NextDayWeatherTableProps> = ({
     return <div>Loading...</div>;
   }
 
-  const partWeather: WeatherInfo[][] = []; // Массив срезов погоды
+  const partWeather: WeatherInfo[][] = [];
   let index = 0;
 
   const data = new Date();
@@ -49,8 +49,7 @@ const NextDayWeatherTable: React.FC<NextDayWeatherTableProps> = ({
     partWeather.push(weatherFiveDays.weather.slice(index, index + 8));
     index += 8;
   }
-  if (partWeather[0].length == 0) partWeather[0].push(partWeather[1][0]);
-  console.log(partWeather);
+  if (partWeather[0].length === 0) partWeather[0].push(partWeather[1][0]);
   return (
     <div>
       <div className={classes.nextDaysWeatherTable}>

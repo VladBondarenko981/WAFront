@@ -17,21 +17,16 @@ const NextDayWeather: React.FC<NextDayWeatherProps> = ({
     return <div>Loading...</div>;
   }
 
-  // Выбираем среднее значение для дня
   const dayWeather: WeatherInfo =
     weatherSlice.length === 1
       ? weatherSlice[0]
       : weatherSlice[Math.round(weatherSlice.length / 2)];
 
-  // Определяем текущую дату с учетом индекса
   const date = new Date();
   const day = date.getDate() + dayIndex;
   const month = date.getMonth() + 1;
   return (
-    <div
-      className={classes.nextDayWeather}
-      onClick={onClick} // Применяем обработчик клика
-    >
+    <div className={classes.nextDayWeather} onClick={onClick}>
       <h1>
         {day.toString().padStart(2, "0")}
         {"."}

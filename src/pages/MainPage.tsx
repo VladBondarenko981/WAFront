@@ -33,10 +33,10 @@ const MainPage: React.FC = () => {
     const token = localStorage.getItem("token");
     if (token) {
       const getPayloadFromToken = (token: string) => {
-        const base64Url = token.split(".")[1]; // Разделяем токен на части и берем payload
-        const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/"); // Декодируем Base64URL в стандартный Base64
-        const jsonPayload = JSON.parse(atob(base64)); // Декодируем Base64 в строку и парсим JSON
-        return jsonPayload; // Возвращаем данные из токена
+        const base64Url = token.split(".")[1];
+        const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+        const jsonPayload = JSON.parse(atob(base64));
+        return jsonPayload;
       };
       const payload = getPayloadFromToken(token);
       setFavoriteCities(payload.favoriteCities || []);
@@ -68,7 +68,7 @@ const MainPage: React.FC = () => {
     };
 
     fetchWeather();
-  }, [geo, cityName]); // Зависимости: вызываем при изменении geo или cityName
+  }, [geo, cityName]);
 
   return (
     <div>

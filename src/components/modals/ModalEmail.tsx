@@ -16,9 +16,9 @@ const ModalUsername: React.FC<ModalEmailProps> = ({ onClose }) => {
 
   const handleChangeEmail = () => {
     changeEmail({ oldEmail, newEmail });
-    // localStorage.removeItem("token");
-    // navigate("/login");
-    // // window.location.reload();
+    localStorage.removeItem("token");
+    navigate("/login");
+    window.location.reload();
     onClose();
   };
 
@@ -31,20 +31,20 @@ const ModalUsername: React.FC<ModalEmailProps> = ({ onClose }) => {
   return (
     <div className={classes.modalContainer} onClick={handleClickOutside}>
       <div className={classes.modalContent}>
-        <h2>Смена пользователя</h2>
-        <label>Старый емеил:</label>
+        <h2>Change user</h2>
+        <label>Old email:</label>
         <MyInput
           type="text"
           value={oldEmail}
           onChange={(e) => setOldEmail(e.target.value)}
         />
-        <label>Новый емеил:</label>
+        <label>New email:</label>
         <MyInput
           type="text"
           value={newEmail}
           onChange={(e) => setNewEmail(e.target.value)}
         />
-        <MyButton onClick={handleChangeEmail}>Сменить емеил</MyButton>
+        <MyButton onClick={handleChangeEmail}>Change email</MyButton>
       </div>
     </div>
   );

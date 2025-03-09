@@ -31,22 +31,16 @@ const UserTable: React.FC<UserTableProps> = ({ userData }) => {
         <div>
           <h1>Username:</h1>
           <h2>{userData?.username}</h2>
-          <MyButton onClick={openModalUsername}>
-            Сменить имя пользователя
-          </MyButton>
+          <MyButton onClick={openModalUsername}>Change username</MyButton>
         </div>
         <div>
           <h1>Mail:</h1>
           <h2>{userData?.email}</h2>
-          <MyButton onClick={openModalEmail}>
-            Сменить Эмеил пользователя
-          </MyButton>
+          <MyButton onClick={openModalEmail}>Change User Email</MyButton>
         </div>
         <div>
           <h1>Password:</h1>
-          <MyButton onClick={openModalPassword}>
-            Сменить пароль пользователя
-          </MyButton>
+          <MyButton onClick={openModalPassword}>Change user password</MyButton>
         </div>
       </div>
       {isModalOpenUsername && <ModalUsername onClose={closeModalUsername} />}

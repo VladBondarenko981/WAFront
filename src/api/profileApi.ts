@@ -29,7 +29,7 @@ export const changeUsername = async ({
       }
     );
   } catch (error) {
-    console.error("Не удалось войти", error);
+    console.error("Failed to login", error);
     throw error;
   }
 };
@@ -44,7 +44,7 @@ export const changeEmail = async ({ oldEmail, newEmail }: EmailProps) => {
       }
     );
   } catch (error) {
-    console.error("Не удалось войти", error);
+    console.error("Failed to login", error);
     throw error;
   }
 };
@@ -64,7 +64,7 @@ export const changePassword = async ({
       }
     );
   } catch (error) {
-    console.error("Не удалось войти", error);
+    console.error("Failed to login", error);
     throw error;
   }
 };
