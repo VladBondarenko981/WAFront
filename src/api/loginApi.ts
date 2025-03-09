@@ -14,7 +14,11 @@ export const handleLogin = async ({ email, password }: userLogin) => {
     const token = response.data.token;
     return token;
   } catch (error) {
-    console.error("Не удалось войти", error);
-    throw error;
+    console.error("Login failed", error);
+    if (axios.isAxiosError(error) && error.response) {
+      throw new Error(error.response.data.message);
+    } else {
+      throw new Error("Произошла ошибка при логине");
+    }
   }
 };

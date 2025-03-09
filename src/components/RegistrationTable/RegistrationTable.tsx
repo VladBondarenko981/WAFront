@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import classes from "./RegistrationTable.module.css";
 import MyButton from "../UI/MyButton/MyButton.tsx";
 import MyInput from "../UI/MyInput/MyInput.tsx";
@@ -11,6 +11,8 @@ interface RegistrationTableProps {
   setPassword: React.Dispatch<React.SetStateAction<string>>;
   setUsername: React.Dispatch<React.SetStateAction<string>>;
   onRegistration: () => void;
+  error: string;
+  successMessage: string;
 }
 
 const RegistrationTable: React.FC<RegistrationTableProps> = ({
@@ -21,11 +23,13 @@ const RegistrationTable: React.FC<RegistrationTableProps> = ({
   setPassword,
   setUsername,
   onRegistration,
+  error,
+  successMessage,
 }) => {
   return (
     <div className={classes.mainStyle}>
       <div className={classes.inputContainer}>
-        <label htmlFor="email">Введите ваш email:</label>
+        <label htmlFor="email">Enter your email:</label>
         <MyInput
           type="email"
           value={email}
@@ -33,7 +37,7 @@ const RegistrationTable: React.FC<RegistrationTableProps> = ({
         />
       </div>
       <div className={classes.inputContainer}>
-        <label htmlFor="password">Введите ваш пароль:</label>
+        <label htmlFor="password">Enter your password:</label>
         <MyInput
           type="password"
           value={password}
@@ -41,7 +45,7 @@ const RegistrationTable: React.FC<RegistrationTableProps> = ({
         />
       </div>
       <div className={classes.inputContainer}>
-        <label htmlFor="username">Введите ваш юзернейм:</label>
+        <label htmlFor="username">Enter your username:</label>
         <MyInput
           type="text"
           value={username}
@@ -49,6 +53,7 @@ const RegistrationTable: React.FC<RegistrationTableProps> = ({
         />
       </div>
       <MyButton onClick={onRegistration}>Click</MyButton>
+      {successMessage ? <div>{successMessage}</div> : <div>{error}</div>}
     </div>
   );
 };

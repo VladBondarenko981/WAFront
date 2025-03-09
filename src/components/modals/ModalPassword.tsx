@@ -27,26 +27,26 @@ const ModalUsername: React.FC<ModalPasswordProps> = ({ onClose }) => {
   return (
     <div className={classes.modalContainer} onClick={handleClickOutside}>
       <div className={classes.modalContent}>
-        <h2>Смена пользователя</h2>
-        <label>Введите ваш емеил:</label>
+        <h2>Change user</h2>
+        <label>Enter your email:</label>
         <MyInput
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <label>Старый пароль:</label>
+        <label>Old Password:</label>
         <MyInput
           type="text"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <label>Новый пароль:</label>
+        <label>New Password:</label>
         <MyInput
           type="text"
           value={newPassword}
           onChange={(e) => setNewPassword(e.target.value)}
         />
-        <MyButton onClick={handleChangePassword}>Сменить пароль</MyButton>
+        <MyButton onClick={handleChangePassword}>Change password</MyButton>
       </div>
     </div>
   );

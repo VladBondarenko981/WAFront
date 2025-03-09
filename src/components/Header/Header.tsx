@@ -15,17 +15,17 @@ const Header: React.FC = () => {
   return (
     <div className={classes.mainStyle}>
       <div>
-        <Link to="/main">Главная страница</Link>
+        <Link to="/">Home page</Link>
       </div>
       {localStorage.getItem("token") ? (
         <div className={classes.Log}>
-          <Link to="/profile">Личный кабинет</Link>
+          <Link to="/profile">Personal account</Link>
           <MyButton onClick={handleClick}>Выйти</MyButton>
         </div>
       ) : (
         <div className={classes.UnLog}>
-          <Link to="/registration">Зарегистрироваться</Link>
-          <Link to="/login">Войти</Link>
+          <Link to="/registration">Register</Link>
+          <Link to="/login">Login</Link>
         </div>
       )}
     </div>

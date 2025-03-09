@@ -3,9 +3,8 @@ import classes from "./ChooseCity.module.css";
 import MyButton from "../UI/MyButton/MyButton.tsx";
 import MyInput from "../UI/MyInput/MyInput.tsx";
 import { WeatherData } from "../../types/types.ts";
-import { getCityWeather, setFavoriteCity } from "../../api/weatherApi.ts";
+import { setFavoriteCity } from "../../api/weatherApi.ts";
 
-// Обновляем тип для favoriteCities
 interface City {
   id: number;
   name: string;
@@ -51,14 +50,14 @@ const ChooseCity: React.FC<ChooseCityProops> = ({
     try {
       const token = localStorage.getItem("token");
       if (!token) {
-        throw new Error("Токен отсутствует.");
+        throw new Error("There is no token.");
       }
       const idUser = getPayloadFromToken(token);
       await setFavoriteCity(inputValue, idUser.id);
-      setFeedback(`Город "${inputValue}" успешно добавлен в избранные!`);
+      setFeedback(`City "${inputValue}" successfully added to favorites!`);
     } catch (error) {
       console.error(error);
-      setFeedback("Ошибка: не удалось добавить город в избранные.");
+      setFeedback("Error: Failed to add city to favorites.");
     }
   };
 
@@ -69,12 +68,12 @@ const ChooseCity: React.FC<ChooseCityProops> = ({
       </div>
       <div className={classes.secondStyle}>
         <MyInput type="text" value={inputValue} onChange={handleInputChange} />
-        <MyButton onClick={handleChange}>Получить данные</MyButton>
+        <MyButton onClick={handleChange}>Get data</MyButton>
       </div>
       <div>
         {localStorage.getItem("token") && (
           <MyButton onClick={handleSecondChange}>
-            Добавить город в Избранные
+            Add city to Favorites
           </MyButton>
         )}
       </div>
@@ -88,7 +87,7 @@ const ChooseCity: React.FC<ChooseCityProops> = ({
             ))}
           </ul>
         ) : (
-          <p>Ваш список избранных городов пуст.</p>
+          <p>Your list of favorite cities is empty.</p>
         )}
       </div>
     </div>

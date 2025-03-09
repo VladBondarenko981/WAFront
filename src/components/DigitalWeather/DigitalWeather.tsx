@@ -48,7 +48,7 @@ const DigitalWeather: React.FC<DigitalWeatherProops> = ({
   ) : (
     <table className={`${classes[className]}`}>
       <tr>
-        <th>Что бы увидеть погоду вам нужно Авторизоваться!</th>
+        <th>To see the weather you need to Login!</th>
       </tr>
     </table>
   );
